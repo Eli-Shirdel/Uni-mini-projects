@@ -6,10 +6,16 @@ class main_queue:
         self._data = [None] * self._N
         self.front = -1
         self.rear = -1
+
+    
     def is_empty(self):
         return self.front == -1
+
+    
     def is_full(self):
         return self.rear + 1 == self._N
+
+    
     def push(self, e):
         if not self.is_full():
             self._data[self.rear + 1] = e
@@ -19,9 +25,12 @@ class main_queue:
             return 1
         else:
             return 0
+
+    
     def pop(self):
         if self.is_empty():
             return 0, None
+            
         else:
             x = self._data[self.front]
             self.front += 1
@@ -29,6 +38,7 @@ class main_queue:
             if self.front > self.rear:
                 self.front = -1
                 self.rear = -1
+                
             else:
                 # Shift elements to the left
                 for i in range(self.front, self.rear + 1):
@@ -37,7 +47,8 @@ class main_queue:
                 self._data[self.rear] = None
                 self.rear -= 1
             return x
-        
+
+    
     def is_prime(self):
         lprime=[]
         for i in self._data:
