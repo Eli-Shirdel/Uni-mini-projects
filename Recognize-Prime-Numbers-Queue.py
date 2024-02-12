@@ -72,9 +72,12 @@ class main_queue:
 
 
 count = int(input("How many number?"))
+
 if count > 30 or count<10:
     print("Number out of range!") 
+    
 main = main_queue(count)
+
 for i in range(count):
     e = int(input("number:"))
     main.push(e)
